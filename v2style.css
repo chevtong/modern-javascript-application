@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    background-color: #f4f4f4;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+
+}
+
+h3, h4{
+    color: white; 
+    font-weight: 300;
+    margin: 0; 
+    padding-top: 5px;
+}
+
+p{
+    font-size: 9px;
+}
+
+input{
+    border: none;
+    outline: none;
+    background-color:  #e8e8e8;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;   
+    line-height: 2.5;
+    text-align: center;
+    opacity: 0.5;
+    border-radius: 3px;
+    width: 70%;
+}
+button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+button:hover{
+    color: grey;
+}
+
+/* GRID display container */
+.wrapper{
+    display: grid;
+    width: 80%;
+    margin: 100px auto;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+
+.container, .container2{
+    width: 400px;
+    height:600px;
+    /* margin: 100px; */
+    border-radius: 8px;
+    background-color: white;
+    display: grid; 
+    grid-template-columns: auto;
+    grid-template-rows: 85% 15%;
+}
+
+.container2{
+    display: none;
+}
+
+/* elements inside grid container */
+.current-temp, .current-temp2{
+    align-self: end;
+    justify-self: center;
+}
+.current-temp p, .current-temp2 p{
+    font-size: 50px;
+    text-align: left;
+    margin: 3px;  
+}
+
+.temp-range, .temp-range2{
+    align-self: end;
+}
+.temp-range p, .temp-range2 p{
+    font-size: 15px;
+    text-align: left;
+    margin: 3px;
+    
+}
+
+.search-area, .search-area2{
+    margin-top: 10px;
+}
+
+.forecast, .forecast2{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-self: center;
+    justify-content: space-between;
+    
+}
+
+.day1,.day2, .day3, .day4, .day5, .day1-2,.day2-2, .day3-2, .day4-2, .day5-2{
+    padding: 5px;
+}
+
+#current-icon-day1, #current-icon-day2, #current-icon-day3, #current-icon-day4, #current-icon-day5,#current-icon-day1-2, #current-icon-day2-2, #current-icon-day3-2, #current-icon-day4-2, #current-icon-day5-2{
+    width: 30px;
+}
+
+.citybackground,.citybackground2{
+    background-image: url('v2img/sample.jpg');
+    background: rgba(0, 151, 19, 0.1);
+    border-radius: 8px 8px 0 0;
+    background-size: cover;
+    display:grid;
+}
+
+.display-current, .display-current2{
+    align-self: end;
+    display: grid; 
+    grid-template-columns: 30% 30% 30%;
+    background: white;
+    opacity: 0.6;
+    padding: 0;
+}    
+
+.current-icon, .current-icon2{
+    align-self: end;
+}
+
+@media screen and (max-width: 768px){ 
+    .wrapper{
+        grid-template-columns: auto;
+        grid-gap: 30px;
+        justify-items: stretch;
+    }
+}
+
+
+@media screen and (max-width: 425px){ 
+    .wrapper{
+        grid-template-columns: auto;
+        grid-gap: 15px;
+        margin: auto;
+    }
+    .container, .container2{
+        width: auto;
+    }
+}
