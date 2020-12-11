@@ -1,5 +1,4 @@
 
-import {getWeather} from "./getWeather.js";
 
 
 let city;
