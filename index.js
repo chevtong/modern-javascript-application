@@ -82,7 +82,7 @@ let foreDate5;
 
 
     //call function with default city
-    getWeather("london",1);
+    getWeather("london");
     backgroundImage("london");
 
     
@@ -201,7 +201,20 @@ document.querySelector("#delete").addEventListener("click", (e) => {
    
 });
 
+getWeather = (city, cityNumber) => {
 
+    const key = "da9a51208d5e4403a9053883caf4d08d";
+
+    fetch('https://api.weatherbit.io/v2.0/forecast/daily?city=' + city +'&key='+ key)
+    .then((repsonse) => repsonse.json())
+    .then((data) => {
+
+        // console.log(data)
+
+        displayToday(data, cityNumber);
+        forecast(data, cityNumber);
+    })
+}
 
 backgroundImage = (city) => {
 
