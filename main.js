@@ -1,5 +1,6 @@
+import { backgroundImage } from './backgroundImage.js';
 
-
+'use strict';
 
 let city;
 let background;
@@ -83,7 +84,7 @@ let foreDate5;
 
     //call function with default city
     getWeather("london");
-    backgroundImage("london");
+    backgroundImage("london", background);
 
     
 
@@ -117,7 +118,7 @@ document.querySelector("#submit").addEventListener("click", (e) => {
     foreDate5 = document.querySelector(".date5");
 
     getWeather(city, 1);
-    backgroundImage(city);
+    backgroundImage(city, background);
 
 });
 
@@ -186,7 +187,7 @@ document.querySelector("#plus").addEventListener("click", (e) => {
 
     //call function with default city
     getWeather("hong kong");
-    backgroundImage("HONG KONG");
+    backgroundImage("hong kong");
 
 });
 
@@ -201,7 +202,7 @@ document.querySelector("#delete").addEventListener("click", (e) => {
    
 });
 
-getWeather = (city, cityNumber) => {
+const getWeather = (city, cityNumber) => {
 
     const key = "da9a51208d5e4403a9053883caf4d08d";
 
@@ -213,25 +214,13 @@ getWeather = (city, cityNumber) => {
 
         displayToday(data, cityNumber);
         forecast(data, cityNumber);
-    })
-}
+    });
+};
 
-backgroundImage = (city) => {
 
-    const key = "1AtTqASnS-chw9VgN_btgruDd8sdggmuUpUwbk5RAJM";
 
-    fetch("https://api.unsplash.com/search/photos?query=" + city + "&client_id=" + key + "&per_page=1")
-    .then((response)=> response.json())
-    .then((data) => {
-        
-        //grab the url from json 
-        let backgroundUrl = data.results[0].urls.small;
-        //change background image url
-        background.style.backgroundImage = "url('"+backgroundUrl +"')";
-    })
-}
 
-displayToday = (data) => {
+const displayToday = (data) => {
 
     //get current temperature
     let temp = Math.round(data.data[0].temp);
@@ -268,7 +257,7 @@ displayToday = (data) => {
    }   
 }
 
-forecast = (data, cityNumber) => {
+const forecast = (data, cityNumber) => {
 
     //get forecast temp from json file
     let forecast1 = Math.round(data.data[1].temp);
@@ -308,7 +297,7 @@ forecast = (data, cityNumber) => {
 
 
     //function to put weathericon accordingly
-    forecastIcon = (forecastDescription, logo) => {
+    const forecastIcon = (forecastDescription, logo) => {
         if(forecastDescription.includes("clouds")){
             logo.src = "v2img/clouds.png";
         } else if(forecastDescription.includes("Thunderstorm")){
