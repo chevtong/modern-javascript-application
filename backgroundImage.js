@@ -14,4 +14,3 @@ export const backgroundImage = (city, background) => {
         background.style.backgroundImage = "url('"+backgroundUrl +"')";
     });
 }
-
